@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D.O Clark & Associates | Strategic Advisory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #1A4EAD;
+      --blue-dark: #123a82;
+      --blue-light: #2260cc;
+      --white: #ffffff;
+      --off-white: #F5F7FA;
+      --gray: #8a9ab5;
+      --text: #1a2340;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Jost', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 5%;
+      background: rgba(26, 78, 173, 0.96);
+      backdrop-filter: blur(12px);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-monogram {
+      width: 42px;
+      height: 42px;
+    }
+
+    .nav-name {
+      font-family: var(--serif);
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      line-height: 1.2;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--white);
+      color: var(--blue) !important;
+      padding: 0.5rem 1.4rem;
+      border-radius: 2px;
+      font-weight: 600 !important;
+    }
+
+    .nav-cta:hover { background: var(--off-white) !important; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: var(--blue);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+
+    .hero-video.loaded { opacity: 1; }
+
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(18, 58, 130, 0.88) 0%,
+        rgba(18, 58, 130, 0.75) 50%,
+        rgba(18, 58, 130, 0.55) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-bg-pattern {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background-image:
+        radial-gradient(circle at 70% 30%, rgba(255,255,255,0.04) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.03) 0%, transparent 40%);
+    }
+
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-content {
+      padding: 8rem 5% 5rem 8%;
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 1s ease both;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.75;
+      max-width: 460px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--white);
+      color: var(--blue);
+      padding: 0.9rem 2rem;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    }
+
+    .hero-cta svg { transition: transform 0.2s; }
+    .hero-cta:hover svg { transform: translateX(4px); }
+
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem 8% 5rem 5%;
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1.4s ease both;
+    }
+
+    .hero-logo-large {
+      width: min(340px, 80%);
+      opacity: 0.15;
+    }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 6rem 8%; }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    .section-title em { font-style: italic; }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--blue);
+      margin-bottom: 2rem;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--off-white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-body {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #3a4a6b;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .stat-card {
+      background: var(--blue);
+      color: var(--white);
+      padding: 1.5rem;
+      border-radius: 2px;
+    }
+
+    .stat-number {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      font-weight: 500;
+    }
+
+    .team-card {
+      background: var(--white);
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 4px 40px rgba(26,78,173,0.08);
+    }
+
+    .team-photo-placeholder {
+      height: 280px;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .team-photo-placeholder svg {
+      opacity: 0.3;
+    }
+
+    .team-info {
+      padding: 1.75rem;
+    }
+
+    .team-name {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .team-title {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .team-bio {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: #5a6a8a;
+      font-weight: 300;
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      background: var(--blue);
+    }
+
+    #services .section-label { color: rgba(255,255,255,0.5); }
+    #services .section-title { color: var(--white); }
+    #services .divider { background: rgba(255,255,255,0.3); }
+
+    .services-intro {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 540px;
+      line-height: 1.75;
+      font-weight: 300;
+      margin-bottom: 3.5rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .service-card {
+      background: var(--blue);
+      padding: 2.5rem 2rem;
+      transition: background 0.3s;
+      cursor: default;
+    }
+
+    .service-card:hover {
+      background: var(--blue-dark);
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-icon svg { opacity: 0.8; }
+
+    .service-name {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ── HOW WE HELP ── */
+    #how-we-help {
+      background: var(--white);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .step-card {
+      position: relative;
+      padding-top: 1rem;
+    }
+
+    .step-number {
+      font-family: var(--serif);
+      font-size: 5rem;
+      font-weight: 300;
+      color: rgba(26,78,173,0.08);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    .step-card:hover .step-number { color: rgba(26,78,173,0.14); }
+
+    .step-connector {
+      position: absolute;
+      top: 2.5rem;
+      right: 0;
+      width: 50%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--blue) 0%, rgba(26,78,173,0.15) 100%);
+    }
+
+    .step-card:last-child .step-connector { display: none; }
+
+    .step-title {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .step-desc {
+      font-size: 0.88rem;
+      color: #6a7a9a;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--off-white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-lead {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-lead em { font-style: italic; color: var(--blue); }
+
+    .contact-body {
+      font-size: 0.95rem;
+      color: #6a7a9a;
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+      color: #4a5a7a;
+      margin-bottom: 0.75rem;
+      font-weight: 400;
+    }
+
+    .contact-detail svg { flex-shrink: 0; color: var(--blue); }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .form-group label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8a9ab5;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: var(--white);
+      border: 1.5px solid #dde3f0;
+      border-radius: 2px;
+      padding: 0.85rem 1rem;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      color: var(--text);
+      font-weight: 300;
+      transition: border-color 0.2s;
+      outline: none;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--blue);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 130px; }
+
+    .form-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      padding: 0.95rem 2.25rem;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+      align-self: flex-start;
+    }
+
+    .form-submit:hover {
+      background: var(--blue-dark);
+      transform: translateY(-1px);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.5);
+      padding: 2.5rem 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .footer-name {
+      font-family: var(--serif);
+      color: rgba(255,255,255,0.8);
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .hero-content { padding: 8rem 5% 5rem; }
+
+      #about, #contact {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .step-connector { display: none; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+
+      nav { padding: 1rem 5%; }
+      .nav-links { display: none; }
+      section { padding: 4rem 5%; }
+    }
+
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#hero">
+      <img src="logo.png" alt="D.O Clark & Associates" class="nav-monogram" style="width:48px;height:48px;object-fit:contain;" />
+      <span class="nav-name">D.O Clark &<br>Associates</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how-we-help">How We Help</a></li>
+      <li><a href="#contact" class="nav-cta">Work With Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <!-- Video Background -->
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" oncanplay="this.classList.add('loaded')">
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Strategic Advisory &amp; Consulting</p>
+      <h1 class="hero-title">
+        Navigating <em>Complexity.</em><br>
+        Delivering Results.
+      </h1>
+      <p class="hero-sub">
+        D.O Clark &amp; Associates provides executive-level advisory services that help organizations cut through ambiguity, align stakeholders, and execute with confidence.
+      </p>
+      <a href="#contact" class="hero-cta">
+        Work With Us
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="hero-visual">
+      <img src="logo.png" alt="D.O Clark &amp; Associates" style="width:min(320px,80%);opacity:0.92;object-fit:contain;position:relative;z-index:2;" />
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="reveal">
+      <p class="section-label">About the Firm</p>
+      <h2 class="section-title">Built on <em>Expertise,</em><br>Driven by Impact</h2>
+      <div class="divider"></div>
+      <p class="about-body">
+        D.O Clark &amp; Associates is a boutique consulting and advisory firm dedicated to helping organizations solve their most complex strategic challenges. We combine deep subject matter expertise with a hands-on approach to deliver measurable, lasting results.
+      </p>
+      <p class="about-body">
+        Our team brings decades of experience across private sector strategy, public sector engagement, and institutional development — enabling us to serve clients across industries with credibility and precision.
+      </p>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Years of Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Clients Served</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">12</div>
+          <div class="stat-label">Sectors Covered</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Continents Active</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="transition-delay:0.2s">
+      <div class="team-card">
+        <div class="team-photo-placeholder">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <circle cx="40" cy="30" r="18" stroke="white" stroke-width="2.5" fill="none"/>
+            <path d="M10 72c0-16.6 13.4-30 30-30s30 13.4 30 30" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">D.O. Clark</h3>
+          <p class="team-title">Founder &amp; Principal Advisor</p>
+          <p class="team-bio">
+            With over a decade of leadership experience spanning strategy, business development, and institutional advisory, D.O. Clark founded the firm with a clear mission: to provide clients with the clarity and expertise needed to succeed in complex environments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="reveal">
+      <p class="section-label">What We Do</p>
+      <h2 class="section-title">Our <em>Services</em></h2>
+      <div class="divider"></div>
+      <p class="services-intro">
+        We offer a focused suite of advisory services tailored to the distinct needs of each client — from early-stage strategy to ongoing institutional support.
+      </p>
+    </div>
+    <div class="services-grid reveal" style="transition-delay:0.15s">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 16L7 9l4 4 3-5 4 8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="service-name">Strategic Planning</h3>
+        <p class="service-desc">Translating long-term vision into actionable roadmaps that align leadership, resources, and execution.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="white" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="service-name">Organizational Development</h3>
+        <p class="service-desc">Building the structures, processes, and culture necessary for sustainable institutional performance.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 10c0-3.9 3.1-7 7-7s7 3.1 7 7-3.1 7-7 7" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M10 6v4l2.5 2.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="service-name">Stakeholder Engagement</h3>
+        <p class="service-desc">Designing and managing stakeholder strategies that build consensus, trust, and durable partnerships.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 14l4-4 3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="2" width="16" height="16" rx="2" stroke="white" stroke-width="1.5" fill="none"/></svg>
+        </div>
+        <h3 class="service-name">Business Development</h3>
+        <p class="service-desc">Identifying growth opportunities, building pipelines, and positioning organizations to win in competitive markets.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L2 7l8 5 8-5-8-5z" stroke="white" stroke-width="1.5" stroke-linejoin="round" fill="none"/><path d="M2 13l8 5 8-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="service-name">Policy Advisory</h3>
+        <p class="service-desc">Providing expert counsel on policy environments, regulatory landscape, and government affairs strategy.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10M10 5l5 5-5 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="service-name">Executive Advisory</h3>
+        <p class="service-desc">Serving as a trusted thought partner to C-suite leaders navigating critical decisions and transitions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE HELP -->
+  <section id="how-we-help">
+    <div class="reveal">
+      <p class="section-label">Our Process</p>
+      <h2 class="section-title">How We <em>Help</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card reveal" style="transition-delay:0.05s">
+        <div class="step-connector"></div>
+        <div class="step-number">01</div>
+        <h3 class="step-title">Discovery &amp; Assessment</h3>
+        <p class="step-desc">We begin by listening — deeply understanding your organization's goals, constraints, and operating environment before prescribing any direction.</p>
+      </div>
+      <div class="step-card reveal" style="transition-delay:0.15s">
+        <div class="step-connector"></div>
+        <div class="step-number">02</div>
+        <h3 class="step-title">Strategy Development</h3>
+        <p class="step-desc">We craft clear, evidence-based strategies that are grounded in reality and designed for your specific context — not boilerplate playbooks.</p>
+      </div>
+      <div class="step-card reveal" style="transition-delay:0.25s">
+        <div class="step-connector"></div>
+        <div class="step-number">03</div>
+        <h3 class="step-title">Implementation Support</h3>
+        <p class="step-desc">We stay engaged through execution, helping teams navigate obstacles, maintain momentum, and adapt as conditions evolve.</p>
+      </div>
+      <div class="step-card reveal" style="transition-delay:0.35s">
+        <div class="step-number">04</div>
+        <h3 class="step-title">Ongoing Advisory</h3>
+        <p class="step-desc">For clients with continuing needs, we offer retainer advisory relationships — providing senior counsel whenever and wherever it's needed most.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="reveal">
+      <p class="section-label">Get In Touch</p>
+      <h2 class="contact-lead">Ready to move <em>forward?</em><br>Let's talk.</h2>
+      <p class="contact-body">
+        Whether you're facing a strategic inflection point, exploring a new opportunity, or looking for a trusted advisor — we'd love to hear from you.
+      </p>
+      <div class="contact-detail">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4l6 5 6-5M2 4h12v9H2V4z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        info@doclarkassociates.com
+      </div>
+      <div class="contact-detail">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5A4.5 4.5 0 0 0 3.5 6c0 3 4.5 8.5 4.5 8.5S12.5 9 12.5 6A4.5 4.5 0 0 0 8 1.5z" stroke="currentColor" stroke-width="1.4" fill="none"/><circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.3" fill="none"/></svg>
+        Washington, D.C. Metropolitan Area
+      </div>
+    </div>
+
+    <div class="reveal" style="transition-delay:0.2s">
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="org">Organization</label>
+            <input type="text" id="org" name="org" placeholder="Your Company" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="service">Area of Interest</label>
+          <select id="service" name="service">
+            <option value="">Select a service...</option>
+            <option>Strategic Planning</option>
+            <option>Organizational Development</option>
+            <option>Stakeholder Engagement</option>
+            <option>Business Development</option>
+            <option>Policy Advisory</option>
+            <option>Executive Advisory</option>
+            <option>Other / General Inquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your needs or goals..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">
+          Send Message
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      <img src="logo.png" alt="D.O Clark &amp; Associates" style="width:36px;height:36px;object-fit:contain;opacity:0.75;" />
+      <span class="footer-name">D.O Clark &amp; Associates</span>
+    </div>
+    <span class="footer-copy">&copy; 2026 D.O Clark &amp; Associates. All rights reserved.</span>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Form handler
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = '✓ Message Sent';
+      btn.style.background = '#2a6e3f';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.innerHTML = 'Send Message <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        btn.style.background = '';
+        btn.disabled = false;
+        e.target.reset();
+      }, 3000);
+    }
+
+    // Nav background adjustment on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.background = window.scrollY > 60
+        ? 'rgba(26,36,64,0.97)'
+        : 'rgba(26,78,173,0.96)';
+    });
+  </script>
+</body>
+</html>
