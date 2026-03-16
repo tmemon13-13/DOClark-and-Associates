@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>D.O Clark & Associates | Strategic Advisory</title>
+  <title>Services | D.O Clark & Associates</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   
 <style>
@@ -152,23 +152,7 @@ footer { background: var(--text); color: rgba(255,255,255,0.5); padding: 2.5rem 
 }
 </style>
 
-  <style>
-.home-hero-wrap { min-height:100vh; background:var(--blue); display:grid; grid-template-columns:1fr 1fr; align-items:center; position:relative; overflow:hidden; }
-.home-intro { background:var(--white); padding:5rem 8%; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
-.home-intro-title { font-family:var(--serif); font-size:clamp(1.8rem,3vw,2.8rem); font-weight:300; line-height:1.2; color:var(--text); }
-.home-intro-title em { font-style:italic; color:var(--blue); }
-.home-intro-body { font-size:1rem; line-height:1.85; color:#3a4a6b; font-weight:300; margin-bottom:1.5rem; }
-.home-intro-link { display:inline-flex; align-items:center; gap:0.5rem; color:var(--blue); font-size:0.8rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--blue); padding-bottom:2px; transition:opacity 0.2s; }
-.home-intro-link:hover { opacity:0.7; }
-.home-services { background:var(--blue); padding:5rem 8%; }
-.home-services .section-label { color:rgba(255,255,255,0.5); }
-.home-services .divider { background:rgba(255,255,255,0.3); }
-.home-services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem; }
-.home-service-pill { border:1px solid rgba(255,255,255,0.2); padding:1.5rem; color:rgba(255,255,255,0.8); font-family:var(--serif); font-size:1.15rem; font-weight:400; transition:background 0.2s,border-color 0.2s; }
-.home-service-pill:hover { background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.4); }
-.home-services-cta { margin-top:2.5rem; display:inline-flex; align-items:center; gap:0.6rem; color:rgba(255,255,255,0.6); font-size:0.8rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.2); padding-bottom:2px; transition:color 0.2s; }
-.home-services-cta:hover { color:var(--white); }
-</style>
+  
 </head>
 <body>
   <nav>
@@ -178,52 +162,72 @@ footer { background: var(--text); color: rgba(255,255,255,0.5); padding: 2.5rem 
     </a>
     <ul class="nav-links">
       <li><a href="about.html" >About</a></li>
-      <li><a href="services.html" >Services</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
       <li><a href="how-we-help.html" >How We Help</a></li>
       <li><a href="contact.html" class="nav-cta ">Work With Us</a></li>
     </ul>
   </nav>
 
-  <div class="home-hero-wrap">
-    <video class="hero-video" autoplay muted loop playsinline preload="auto" oncanplay="this.classList.add('loaded')">
-      <source src="hero-video.mp4" type="video/mp4">
-    </video>
-    <div class="hero-video-overlay"></div>
-    <div class="hero-bg-pattern"></div>
-    <div class="hero-grid-lines"></div>
-    <div class="hero-content" style="padding:8rem 5% 5rem 8%;position:relative;z-index:3;">
-      <p class="hero-eyebrow">Strategic Advisory &amp; Consulting</p>
-      <h1 class="hero-title">Navigating <em>Complexity.</em><br>Delivering Results.</h1>
-      <p class="hero-sub">D.O Clark &amp; Associates provides executive-level advisory services that help organizations cut through ambiguity, align stakeholders, and execute with confidence.</p>
-      <a href="contact.html" class="hero-cta">Work With Us <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-    <div class="hero-visual" style="position:relative;z-index:3;">
-      <img src="logo.png" alt="D.O Clark & Associates" style="width:min(320px,80%);opacity:0.92;object-fit:contain;" />
+  <div class="page-hero">
+    <div class="hero-bg-pattern"></div><div class="hero-grid-lines"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">What We Do</p>
+      <h1 class="hero-title">Advisory Services<br>Built for <em>Impact.</em></h1>
+      <p class="hero-sub">A focused suite of services designed to address the strategic, operational, and institutional challenges that matter most to our clients.</p>
+      <a href="contact.html" class="hero-cta">Start a Conversation <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </div>
 
-  <div class="home-intro reveal">
-    <h2 class="home-intro-title">Trusted advisors for <em>complex</em> challenges.</h2>
-    <div>
-      <p class="home-intro-body">D.O Clark &amp; Associates is a boutique consulting and advisory firm dedicated to helping organizations solve their most complex strategic challenges. We combine deep expertise with a hands-on approach to deliver measurable, lasting results.</p>
-      <a href="about.html" class="home-intro-link">Meet the firm <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <section id="services">
+    <div class="reveal">
+      <p class="section-label">Our Services</p>
+      <h2 class="section-title">How We <em>Serve</em> You</h2>
+      <div class="divider"></div>
+      <p class="services-intro">We offer a focused suite of advisory services tailored to the distinct needs of each client — from early-stage strategy to ongoing institutional support.</p>
     </div>
-  </div>
+    <div class="services-grid reveal" style="transition-delay:0.15s">
+      <div class="service-card">
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 16L7 9l4 4 3-5 4 8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 class="service-name">Strategic Planning</h3>
+        <p class="service-desc">Translating long-term vision into actionable roadmaps that align leadership, resources, and execution. We help organizations move from ambition to clarity — and from clarity to action.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="white" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <h3 class="service-name">Organizational Development</h3>
+        <p class="service-desc">Building the structures, processes, and culture necessary for sustainable institutional performance. We help organizations grow without losing what makes them effective.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 10c0-3.9 3.1-7 7-7s7 3.1 7 7-3.1 7-7 7" stroke="white" stroke-width="1.5" stroke-linecap="round"/><path d="M10 6v4l2.5 2.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <h3 class="service-name">Stakeholder Engagement</h3>
+        <p class="service-desc">Designing and managing stakeholder strategies that build consensus, trust, and durable partnerships. From mapping to messaging to management — we guide the full engagement lifecycle.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 14l4-4 3 3 5-6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="2" width="16" height="16" rx="2" stroke="white" stroke-width="1.5" fill="none"/></svg></div>
+        <h3 class="service-name">Business Development</h3>
+        <p class="service-desc">Identifying growth opportunities, building pipelines, and positioning organizations to win in competitive markets. We help you find and capture the right opportunities at the right time.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L2 7l8 5 8-5-8-5z" stroke="white" stroke-width="1.5" stroke-linejoin="round" fill="none"/><path d="M2 13l8 5 8-5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 class="service-name">Policy Advisory</h3>
+        <p class="service-desc">Providing expert counsel on policy environments, regulatory landscape, and government affairs strategy. We help clients navigate complex policy terrain with confidence.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 10h10M10 5l5 5-5 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 class="service-name">Executive Advisory</h3>
+        <p class="service-desc">Serving as a trusted thought partner to C-suite leaders navigating critical decisions and transitions. A confidential sounding board at the highest level — available when it matters most.</p>
+      </div>
+    </div>
+  </section>
 
-  <div class="home-services reveal">
-    <p class="section-label">What We Do</p>
-    <h2 class="section-title" style="color:white;">Our <em>Services</em></h2>
-    <div class="divider"></div>
-    <div class="home-services-grid">
-      <div class="home-service-pill">Strategic Planning</div>
-      <div class="home-service-pill">Organizational Development</div>
-      <div class="home-service-pill">Stakeholder Engagement</div>
-      <div class="home-service-pill">Business Development</div>
-      <div class="home-service-pill">Policy Advisory</div>
-      <div class="home-service-pill">Executive Advisory</div>
+  <section style="background:var(--off-white);text-align:center;padding:5rem 8%;">
+    <div class="reveal">
+      <p class="section-label" style="text-align:center;">Get Started</p>
+      <h2 class="section-title" style="text-align:center;">Not sure where to <em>begin?</em></h2>
+      <div class="divider" style="margin:0 auto 2rem;"></div>
+      <p style="font-size:1rem;color:#6a7a9a;max-width:500px;margin:0 auto 2rem;line-height:1.75;font-weight:300;">Every engagement starts with a conversation. Reach out and we'll help identify which service best fits your needs.</p>
+      <a href="contact.html" class="hero-cta" style="background:var(--blue);color:white;">Talk to Us <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
-    <a href="services.html" class="home-services-cta">View all services <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-  </div>
+  </section>
 
   <footer>
     <div class="footer-brand">

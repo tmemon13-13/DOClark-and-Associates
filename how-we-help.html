@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>D.O Clark & Associates | Strategic Advisory</title>
+  <title>How We Help | D.O Clark & Associates</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   
 <style>
@@ -153,21 +153,15 @@ footer { background: var(--text); color: rgba(255,255,255,0.5); padding: 2.5rem 
 </style>
 
   <style>
-.home-hero-wrap { min-height:100vh; background:var(--blue); display:grid; grid-template-columns:1fr 1fr; align-items:center; position:relative; overflow:hidden; }
-.home-intro { background:var(--white); padding:5rem 8%; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
-.home-intro-title { font-family:var(--serif); font-size:clamp(1.8rem,3vw,2.8rem); font-weight:300; line-height:1.2; color:var(--text); }
-.home-intro-title em { font-style:italic; color:var(--blue); }
-.home-intro-body { font-size:1rem; line-height:1.85; color:#3a4a6b; font-weight:300; margin-bottom:1.5rem; }
-.home-intro-link { display:inline-flex; align-items:center; gap:0.5rem; color:var(--blue); font-size:0.8rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid var(--blue); padding-bottom:2px; transition:opacity 0.2s; }
-.home-intro-link:hover { opacity:0.7; }
-.home-services { background:var(--blue); padding:5rem 8%; }
-.home-services .section-label { color:rgba(255,255,255,0.5); }
-.home-services .divider { background:rgba(255,255,255,0.3); }
-.home-services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem; }
-.home-service-pill { border:1px solid rgba(255,255,255,0.2); padding:1.5rem; color:rgba(255,255,255,0.8); font-family:var(--serif); font-size:1.15rem; font-weight:400; transition:background 0.2s,border-color 0.2s; }
-.home-service-pill:hover { background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.4); }
-.home-services-cta { margin-top:2.5rem; display:inline-flex; align-items:center; gap:0.6rem; color:rgba(255,255,255,0.6); font-size:0.8rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.2); padding-bottom:2px; transition:color 0.2s; }
-.home-services-cta:hover { color:var(--white); }
+.process-block { display:grid; grid-template-columns:140px 1fr; gap:3rem; align-items:start; padding:3rem 0; border-bottom:1px solid #e8edf5; }
+.process-block:last-child { border-bottom:none; }
+.process-num { font-family:var(--serif); font-size:5rem; font-weight:300; color:rgba(26,78,173,0.1); line-height:1; }
+.process-title { font-family:var(--serif); font-size:1.8rem; font-weight:400; color:var(--text); margin-bottom:1rem; }
+.process-body { font-size:1rem; color:#3a4a6b; line-height:1.85; font-weight:300; }
+.why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:1rem; }
+.why-card { padding:2rem; background:white; border-left:3px solid var(--blue); }
+.why-card h4 { font-family:var(--serif); font-size:1.3rem; font-weight:400; color:var(--text); margin-bottom:0.75rem; }
+.why-card p { font-size:0.9rem; color:#6a7a9a; line-height:1.75; font-weight:300; }
 </style>
 </head>
 <body>
@@ -179,51 +173,68 @@ footer { background: var(--text); color: rgba(255,255,255,0.5); padding: 2.5rem 
     <ul class="nav-links">
       <li><a href="about.html" >About</a></li>
       <li><a href="services.html" >Services</a></li>
-      <li><a href="how-we-help.html" >How We Help</a></li>
+      <li><a href="how-we-help.html" class="active">How We Help</a></li>
       <li><a href="contact.html" class="nav-cta ">Work With Us</a></li>
     </ul>
   </nav>
 
-  <div class="home-hero-wrap">
-    <video class="hero-video" autoplay muted loop playsinline preload="auto" oncanplay="this.classList.add('loaded')">
-      <source src="hero-video.mp4" type="video/mp4">
-    </video>
-    <div class="hero-video-overlay"></div>
-    <div class="hero-bg-pattern"></div>
-    <div class="hero-grid-lines"></div>
-    <div class="hero-content" style="padding:8rem 5% 5rem 8%;position:relative;z-index:3;">
-      <p class="hero-eyebrow">Strategic Advisory &amp; Consulting</p>
-      <h1 class="hero-title">Navigating <em>Complexity.</em><br>Delivering Results.</h1>
-      <p class="hero-sub">D.O Clark &amp; Associates provides executive-level advisory services that help organizations cut through ambiguity, align stakeholders, and execute with confidence.</p>
-      <a href="contact.html" class="hero-cta">Work With Us <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-    <div class="hero-visual" style="position:relative;z-index:3;">
-      <img src="logo.png" alt="D.O Clark & Associates" style="width:min(320px,80%);opacity:0.92;object-fit:contain;" />
+  <div class="page-hero">
+    <div class="hero-bg-pattern"></div><div class="hero-grid-lines"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Our Process</p>
+      <h1 class="hero-title">A proven path<br>to <em>real results.</em></h1>
+      <p class="hero-sub">Every engagement follows a structured, collaborative process designed to move you from uncertainty to clarity — and from strategy to execution.</p>
     </div>
   </div>
 
-  <div class="home-intro reveal">
-    <h2 class="home-intro-title">Trusted advisors for <em>complex</em> challenges.</h2>
-    <div>
-      <p class="home-intro-body">D.O Clark &amp; Associates is a boutique consulting and advisory firm dedicated to helping organizations solve their most complex strategic challenges. We combine deep expertise with a hands-on approach to deliver measurable, lasting results.</p>
-      <a href="about.html" class="home-intro-link">Meet the firm <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <section style="background:var(--white);padding:6rem 8%;">
+    <div class="reveal">
+      <p class="section-label">How We Work</p>
+      <h2 class="section-title">Our <em>Engagement</em> Process</h2>
+      <div class="divider"></div>
     </div>
-  </div>
+    <div class="process-block reveal">
+      <div class="process-num">01</div>
+      <div>
+        <h3 class="process-title">Discovery &amp; Assessment</h3>
+        <p class="process-body">We begin by listening — deeply understanding your organization's goals, constraints, and operating environment before prescribing any direction. This phase includes stakeholder interviews, document review, landscape analysis, and a diagnostic assessment of current state. We don't skip this step. The quality of our recommendations is only as good as the depth of our understanding.</p>
+      </div>
+    </div>
+    <div class="process-block reveal">
+      <div class="process-num">02</div>
+      <div>
+        <h3 class="process-title">Strategy Development</h3>
+        <p class="process-body">We craft clear, evidence-based strategies that are grounded in reality and designed for your specific context — not boilerplate playbooks. Our strategies are built collaboratively with your leadership team, ensuring buy-in at every level. The result is a clear, prioritized roadmap with defined goals, milestones, and decision criteria.</p>
+      </div>
+    </div>
+    <div class="process-block reveal">
+      <div class="process-num">03</div>
+      <div>
+        <h3 class="process-title">Implementation Support</h3>
+        <p class="process-body">We stay engaged through execution, helping teams navigate obstacles, maintain momentum, and adapt as conditions evolve. This is where many consulting relationships end — ours doesn't. We work alongside your team to ensure the strategy translates into real results, not just a report on a shelf.</p>
+      </div>
+    </div>
+    <div class="process-block reveal">
+      <div class="process-num">04</div>
+      <div>
+        <h3 class="process-title">Ongoing Advisory</h3>
+        <p class="process-body">For clients with continuing needs, we offer retainer advisory relationships — providing senior counsel whenever and wherever it's needed most. Whether it's preparing for a board meeting, navigating a crisis, or thinking through a new opportunity, we're available as a trusted thought partner for the long term.</p>
+      </div>
+    </div>
+  </section>
 
-  <div class="home-services reveal">
-    <p class="section-label">What We Do</p>
-    <h2 class="section-title" style="color:white;">Our <em>Services</em></h2>
-    <div class="divider"></div>
-    <div class="home-services-grid">
-      <div class="home-service-pill">Strategic Planning</div>
-      <div class="home-service-pill">Organizational Development</div>
-      <div class="home-service-pill">Stakeholder Engagement</div>
-      <div class="home-service-pill">Business Development</div>
-      <div class="home-service-pill">Policy Advisory</div>
-      <div class="home-service-pill">Executive Advisory</div>
+  <section style="background:var(--off-white);padding:6rem 8%;">
+    <div class="reveal">
+      <p class="section-label">Why D.O Clark</p>
+      <h2 class="section-title">What makes us <em>different.</em></h2>
+      <div class="divider"></div>
     </div>
-    <a href="services.html" class="home-services-cta">View all services <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-  </div>
+    <div class="why-grid reveal">
+      <div class="why-card"><h4>Senior Talent Only</h4><p>You work directly with senior advisors — not handed off to analysts after the sales pitch. Every engagement gets our full attention.</p></div>
+      <div class="why-card"><h4>Tailored, Not Templated</h4><p>We reject one-size-fits-all approaches. Every strategy, plan, and recommendation is built specifically for your organization and context.</p></div>
+      <div class="why-card"><h4>Results Over Reports</h4><p>We measure success by outcomes, not deliverables. Our goal is to move your organization forward — not to fill a binder.</p></div>
+    </div>
+  </section>
 
   <footer>
     <div class="footer-brand">
