@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services | D.O Clark & Associates</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -150,23 +151,158 @@ footer { background: var(--text); color: rgba(255,255,255,0.5); padding: 2.5rem 
   .steps-grid { grid-template-columns: 1fr; }
   .home-services-grid { grid-template-columns: 1fr !important; }
 }
+
+
+  .about-stats { grid-template-columns: 1fr 1fr !important; }
+  .hero-title { font-size: clamp(1.8rem, 7vw, 2.5rem) !important; }
+}
+
+
+/* ── HAMBURGER & MOBILE MENU ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+  background: none;
+  border: none;
+  z-index: 300;
+}
+.hamburger span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 35, 90, 0.98);
+  z-index: 200;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.mobile-menu.open { display: flex !important; }
+.mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+.mobile-menu a:hover { opacity: 0.6; }
+.mobile-menu .mobile-cta {
+  margin-top: 0.5rem;
+  background: white;
+  color: #1A4EAD !important;
+  padding: 0.8rem 2.5rem;
+  border-radius: 2px;
+  font-family: 'Jost', sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.mobile-menu-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 5%;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.7);
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none !important; }
+  .hamburger { display: flex !important; }
+  .page-hero { min-height: 60vh !important; padding: 7rem 5% 4rem !important; }
+  .hero-title { font-size: clamp(2rem, 8vw, 3rem) !important; }
+  .hero-sub { font-size: 0.9rem !important; max-width: 100% !important; }
+  .home-hero-wrap { grid-template-columns: 1fr !important; min-height: 85vh !important; }
+  .home-hero-wrap .hero-visual { display: none !important; }
+  .home-hero-wrap .hero-content { padding: 7rem 5% 4rem !important; }
+  section { padding: 3.5rem 5% !important; }
+  #about { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+  #contact { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .services-grid { grid-template-columns: 1fr !important; }
+  .steps-grid { grid-template-columns: 1fr !important; }
+  .step-connector { display: none !important; }
+  .home-services-grid { grid-template-columns: 1fr 1fr !important; }
+  .about-stats { grid-template-columns: 1fr 1fr !important; }
+  .form-row { grid-template-columns: 1fr !important; }
+  .why-grid { grid-template-columns: 1fr !important; }
+  .process-block { grid-template-columns: 1fr !important; gap: 0.25rem !important; }
+  .process-num { font-size: 3rem !important; }
+  .section-title { font-size: clamp(1.6rem, 6vw, 2.4rem) !important; }
+  footer { flex-direction: column !important; text-align: center !important; gap: 1.5rem !important; padding: 2rem 5% !important; }
+  .footer-links { justify-content: center !important; flex-wrap: wrap !important; }
+}
+@media (max-width: 480px) {
+  .home-services-grid { grid-template-columns: 1fr !important; }
+  .hero-title { font-size: clamp(1.8rem, 7vw, 2.5rem) !important; }
+}
+
+
+/* ── IMAGE SPLITS ── */
+.img-split { display:grid; grid-template-columns:1fr 1fr; align-items:stretch; }
+.img-split-photo { overflow:hidden; min-height:460px; }
+.img-split-photo img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.6s ease; }
+.img-split-photo:hover img { transform:scale(1.03); }
+.img-split-content { padding:5rem 8%; display:flex; flex-direction:column; justify-content:center; }
+@media (max-width:768px) {
+  .img-split { grid-template-columns:1fr !important; }
+  .img-split-photo { min-height:240px !important; }
+  .img-split-content { padding:3rem 5% !important; }
+}
+
 </style>
 
   
 </head>
 <body>
-  <nav>
+  <nav id="mainNav">
     <a class="nav-logo" href="index.html">
       <img src="logo.png" alt="D.O Clark & Associates" style="width:48px;height:48px;object-fit:contain;" />
       <span class="nav-name">D.O Clark &<br>Associates</span>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="about.html" >About</a></li>
       <li><a href="services.html" class="active">Services</a></li>
       <li><a href="how-we-help.html" >How We Help</a></li>
       <li><a href="contact.html" class="nav-cta ">Work With Us</a></li>
     </ul>
+    <button class="hamburger" id="hamburgerBtn" onclick="openMobileMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- Full screen mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="closeMobileMenu()">&#10005;</button>
+    <a href="index.html" onclick="closeMobileMenu()">Home</a>
+    <a href="about.html" onclick="closeMobileMenu()">About</a>
+    <a href="services.html" onclick="closeMobileMenu()">Services</a>
+    <a href="how-we-help.html" onclick="closeMobileMenu()">How We Help</a>
+    <a href="contact.html" class="mobile-cta" onclick="closeMobileMenu()">Work With Us</a>
+  </div>
+  
 
   <div class="page-hero">
     <div class="hero-bg-pattern"></div><div class="hero-grid-lines"></div>
@@ -177,12 +313,26 @@ footer { background: var(--text); color: rgba(255,255,255,0.5); padding: 2.5rem 
       <a href="contact.html" class="hero-cta">Start a Conversation <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </div>
+
+  <!-- IMAGE SPLIT: tablet/analytics -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;align-items:stretch;" class="reveal">
+    <div style="padding:5rem 8%;display:flex;flex-direction:column;justify-content:center;background:var(--off-white);">
+      <p style="font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;font-weight:600;color:var(--blue);margin-bottom:0.75rem;">Our Approach</p>
+      <h2 style="font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.2;color:var(--text);margin-bottom:1rem;">Data-driven advice. <em>Relationship-led</em> results.</h2>
+      <div style="width:40px;height:2px;background:var(--blue);margin-bottom:1.25rem;"></div>
+      <p style="font-size:0.95rem;line-height:1.85;color:#3a4a6b;font-weight:300;margin-bottom:1.5rem;">We offer a focused suite of advisory services designed to help companies, investors, and institutions successfully engage with international markets — from strategy through execution.</p>
+      <a href="contact.html" style="display:inline-flex;align-items:center;gap:0.5rem;color:var(--blue);font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--blue);padding-bottom:2px;">Talk to our team <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div style="overflow:hidden;min-height:460px;">
+      <img src="img-services.png" alt="Strategic data analysis" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'" />
+    </div>
+  </div>
+
   <section id="services">
     <div class="reveal">
       <p class="section-label">Our Services</p>
       <h2 class="section-title">How We <em>Serve</em> You</h2>
       <div class="divider"></div>
-      <p class="services-intro">We offer a focused suite of advisory services designed to help companies, investors, and institutions successfully engage with international markets — from strategy through execution.</p>
     </div>
     <div class="services-grid reveal" style="transition-delay:0.15s">
       <div class="service-card">
@@ -212,12 +362,13 @@ footer { background: var(--text); color: rgba(255,255,255,0.5); padding: 2.5rem 
       </div>
     </div>
   </section>
+
   <section style="background:var(--off-white);text-align:center;padding:5rem 8%;">
     <div class="reveal">
       <p class="section-label" style="text-align:center;">Get Started</p>
       <h2 class="section-title" style="text-align:center;">Not sure where to <em>begin?</em></h2>
       <div class="divider" style="margin:0 auto 2rem;"></div>
-      <p style="font-size:1rem;color:#6a7a9a;max-width:520px;margin:0 auto 2rem;line-height:1.75;font-weight:300;">Every engagement starts with a conversation. Tell us about your goals and we'll help identify the right path forward in your target market.</p>
+      <p style="font-size:1rem;color:#6a7a9a;max-width:520px;margin:0 auto 2rem;line-height:1.75;font-weight:300;">Every engagement starts with a conversation. Tell us about your goals and we'll identify the right path forward.</p>
       <a href="contact.html" class="hero-cta" style="background:var(--blue);color:white;">Let's Talk <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </section>
@@ -248,5 +399,25 @@ footer { background: var(--text); color: rgba(255,255,255,0.5); padding: 2.5rem 
     });
   </script>
 
+
+  <!-- Mobile Nav -->
+  
+
+  <script>
+    function openMobileMenu() {
+      document.getElementById('mobileMenu').classList.add('open');
+      document.getElementById('hamburgerBtn').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.getElementById('hamburgerBtn').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMobileMenu();
+    });
+  </script>
 </body>
 </html>
