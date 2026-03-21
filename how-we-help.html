@@ -272,6 +272,17 @@ footer { background: var(--text); color: rgba(255,255,255,0.5); padding: 2.5rem 
   .img-split-content { padding:3rem 5% !important; }
 }
 
+
+/* ── DESKTOP: always show nav, always hide hamburger ── */
+.nav-links { display: flex !important; }
+.hamburger { display: none !important; }
+
+/* ── MOBILE ONLY: flip them ── */
+@media (max-width: 768px) {
+  .nav-links { display: none !important; }
+  .hamburger { display: flex !important; }
+}
+
 </style>
 
   <style>
